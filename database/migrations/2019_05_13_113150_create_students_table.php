@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string("name");
             $table->date("date_of_birth")->nullable();
             $table->decimal("mobile", 20, 0)->nullable();
-            $table->decimal("nation_id", 15, 0);
+            $table->decimal("national_id", 15, 0);
             $table->timestamps();
         });
     }

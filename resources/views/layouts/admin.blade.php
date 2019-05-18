@@ -35,6 +35,19 @@
                 </div>
             </div>
             <div class="col-md-8">
+
+                @if(request()->session()->has("success"))
+                    <div class="alert alert-success">
+                        {{ request()->session()->get("success") }}
+                    </div>
+                @endif
+
+                @if(request()->session()->has("error"))
+                    <div class="alert alert-error">
+                        {{ request()->session()->get("error") }}
+                    </div>
+                @endif
+
                 @yield("adminContent")
             </div>
         </div>

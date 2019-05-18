@@ -9,6 +9,7 @@
             Create new student
         </a>
     </div>
+
     <table class="table table-striped bg-white">
         <thead>
         <tr>
@@ -21,18 +22,28 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>
-                <a href="" class="btn btn-info text-capitalize">View</a>
-                <a href="" class="btn btn-warning text-capitalize">edit</a>
-                <a href="" class="btn btn-danger text-capitalize">delete</a>
-            </td>
-        </tr>
+
+        @foreach($data as $student)
+            <tr>
+                <td>{{ $student->id }}</td>
+                <td>{{ $student->name }}</td>
+                <td>{{ $student->date_of_birth }}</td>
+                <td>{{ $student->mobile }}</td>
+                <td>{{ $student->national_id }}</td>
+                <td>
+                    <a href="" class="btn btn-info text-capitalize">View</a>
+                    <a href="{{ route("admin.students.edit", $student->id) }}" class="btn btn-warning text-capitalize">edit</a>
+                    <form onsubmit="return confirm('you are about to delete a record, Are u sure?')" class="d-inline-block" action="{{ route("admin.students.delete") }}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $student->id }}">
+                        <button type="submit" class="btn btn-danger text-capitalize">delete</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+
         </tbody>
     </table>
+
+    {{ $data->links() }}
 @endsection
