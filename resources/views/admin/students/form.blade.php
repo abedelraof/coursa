@@ -28,7 +28,7 @@
                     <div class="col-md-6">
                         <input id="name"
                                type="text"
-                               value="{{ $student->name }}"
+                               value="{{ old("name", $student->name) }}"
                                class="form-control"
                                name="name" autofocus>
 
@@ -49,7 +49,7 @@
                     <div class="col-md-6">
                         <input id="date_of_birth"
                                type="date"
-                               value="{{ $student->date_of_birth }}"
+                               value="{{ old("date_of_birth", $student->date_of_birth) }}"
                                class="form-control"
                                name="date_of_birth">
 
@@ -69,7 +69,7 @@
                     <div class="col-md-6">
                         <input id="mobile"
                                type="number"
-                               value="{{ $student->mobile }}"
+                               value="{{ old("mobile", $student->mobile) }}"
                                class="form-control"
                                name="mobile">
 
@@ -88,7 +88,7 @@
                     <div class="col-md-6">
                         <input id="national_id"
                                type="number"
-                               value="{{ $student->national_id }}"
+                               value="{{ old("national_id", $student->national_id) }}"
                                class="form-control"
                                name="national_id">
 

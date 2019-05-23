@@ -16,7 +16,7 @@
                                 </a>
                             </li>
                             <li class="list-group-item">
-                                <a class="d-block" href="">
+                                <a class="d-block" href="{{ route("admin.teachers.index") }}">
                                     Teachers Management
                                 </a>
                             </li>
