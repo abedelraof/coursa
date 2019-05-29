@@ -6,12 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
+    protected $table = "teachers";
 
-    protected $fillable = ["name", "date_of_birth", "mobile", "national_id", "user_id", "image_path"];
+    protected $primaryKey = "id";
+
+    protected $fillable = ["name" , "date_of_birth" , "national_id" , "mobile"  ,"image_path" ,
+                           "user_id"];
 
     public function user()
     {
-        return $this->belongsTo("\App\User", "user_id");
+        return $this->belongsTo('\App\User','user_id');
     }
 
+    public function course()
+    {
+        return $this->hasMany(Course::class);
+    }
 }

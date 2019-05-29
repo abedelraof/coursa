@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeachersTable extends Migration
+class AddImagePathToStudents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreateTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('teachers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string("name");
+        Schema::table('students', function (Blueprint $table) {
             $table->string("image_path")->nullable();
-            $table->date("date_of_birth")->nullable();
-            $table->decimal("mobile", 20, 0)->nullable();
-            $table->decimal("national_id", 15, 0);
-            $table->timestamps();
         });
     }
 
@@ -31,6 +25,8 @@ class CreateTeachersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teachers');
+        Schema::table('students', function (Blueprint $table) {
+            //
+        });
     }
 }
