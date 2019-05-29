@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e82de27-e968-47d3-a9ee-9e4f1a4739b9" name="Default Changelist" comment="">
+    <list default="true" id="2e82de27-e968-47d3-a9ee-9e4f1a4739b9" name="Default Changelist" comment="Courses Management &amp; Improvements on create students and create teacher">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Course.php" />
@@ -564,12 +564,20 @@
       <workItem from="1558519915793" duration="312000" />
       <workItem from="1558520353780" duration="1687000" />
       <workItem from="1558522163757" duration="3741000" />
-      <workItem from="1559130210103" duration="1068000" />
+      <workItem from="1559130210103" duration="1203000" />
     </task>
+    <task id="LOCAL-00001" summary="Courses Management &amp; Improvements on create students and create teacher">
+      <created>1559131394044</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559131394044</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26085000" />
+    <option name="totallyTimeSpent" value="26220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -608,6 +616,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Courses Management &amp; Improvements on create students and create teacher" />
+    <option name="LAST_COMMIT_MESSAGE" value="Courses Management &amp; Improvements on create students and create teacher" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
