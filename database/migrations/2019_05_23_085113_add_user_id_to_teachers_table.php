@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTypeToUsers extends Migration
+class AddUserIdToTeachersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTypeToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string("type");
+        Schema::table('teachers', function (Blueprint $table) {
+            $table->integer("user_id");
         });
     }
 
@@ -25,7 +25,7 @@ class AddTypeToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('teachers', function (Blueprint $table) {
             //
         });
     }

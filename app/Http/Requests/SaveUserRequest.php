@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class DeleteTeacherRequest extends FormRequest
+class SaveUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,11 @@ class DeleteTeacherRequest extends FormRequest
     public function rules()
     {
         return [
-            "id" => "required|numeric|exists:teachers"
+            "name" => "required",
+            "email" => "required|email|unique:users",
+            "password" => "required|confirmed",
+            "password_confirmation" => "required",
+
         ];
     }
 }

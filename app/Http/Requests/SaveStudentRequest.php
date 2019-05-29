@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Student;
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class SaveStudentRequest extends FormRequest
 {
@@ -19,16 +22,29 @@ class SaveStudentRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     *"image_path" => "nullable|string",
      * @return array
      */
     public function rules()
     {
+        //dd($_REQUEST);
+        $user_id = 0;
+        if ($this->id)
+        {
+            $student = Student::find($this->id);
+            if($student)
+            {
+                $user_id = $student->user_id;
+            }
+        }
         return [
             "name" => "required",
             "national_id" => "required|numeric|digits:9",
-            "date_of_birth" => "nullable|date|before_or_equal:16years ago",
-            "mobile" => "nullable|numeric"
+            "date_of_birth" => "nullable|date",
+            "mobile" => "nullable|numeric",
+            "email" => ["required","email",Rule::unique("users")->ignore($user_id)],
+            "password" => "required_without:id|confirmed",
+            "password_confirmation" => "nullable",
         ];
     }
 }
