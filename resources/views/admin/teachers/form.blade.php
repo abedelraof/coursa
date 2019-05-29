@@ -3,27 +3,26 @@
 @section("adminContent")
     <div class="d-flex mb4 justify-content-between align-items-center">
         <h1>
-            Create Student
+            Create Teacher
         </h1>
-        <a href="{{route("admin.students.index")}}" class="btn btn-primary">
-            Back to student
+        <a href="{{route("admin.teachers.index")}}" class="btn btn-primary">
+            Back to Teacher
         </a>
     </div>
 
     <div class="card">
-       <div class="card-header">
-           <h5 class="font-weight-bold">
-               {{ __('Student Information') }}
-           </h5>
-       </div>
-
+        <div class="card-header">
+            <h5 class="font-weight-bold">
+                {{ __('Add Teacher') }}
+            </h5>
+        </div>
 
         <div class="card-body">
-            <form method="POST" action="{{ route("admin.students.save") }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route("admin.teachers.save") }}" enctype="multipart/form-data">
                 @csrf
 
-                @if($student->id > 0)
-                    <input type="hidden" name="id" value="{{ $student->id }}">
+                @if($teacher->id > 0)
+                    <input type="hidden" name="id" value="{{ $teacher->id }}">
                 @endif
 
                 <div class="form-group row">
@@ -32,7 +31,7 @@
                     <div class="col-md-6">
                         <input id="name"
                                type="text"
-                               value="{{ old("name",$student->name) }}"
+                               value="{{ old("name",$teacher->name) }}"
                                class="form-control"
                                name="name" autofocus>
 
@@ -51,7 +50,7 @@
                     <div class="col-md-6">
                         <input id="date_of_birth"
                                type="date"
-                               value="{{ old("date_of_birth",$student->date_of_birth) }}"
+                               value="{{ old("date_of_birth",$teacher->date_of_birth) }}"
                                class="form-control"
                                name="date_of_birth">
 
@@ -70,7 +69,7 @@
                     <div class="col-md-6">
                         <input id="national_id"
                                type="number"
-                               value="{{ old("national_id",$student->national_id) }}"
+                               value="{{ old("number",$teacher->national_id) }}"
                                class="form-control"
                                name="national_id">
 
@@ -89,7 +88,7 @@
                     <div class="col-md-6">
                         <input id="mobile"
                                type="number"
-                               value="{{ old("mobile",$student->mobile) }}"
+                               value="{{ old("mobile",$teacher->mobile) }}"
                                class="form-control"
                                name="mobile">
 
@@ -102,38 +101,18 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
-                    <label for="course_id" class="col-md-4 col-form-label text-md-right">
-                        {{ __('Select Course') }}</label>
-
-                    <div class="col-md-6">
-                        <select name="course_id[]" id="course_id" multiple
-                                class="form-control" >
-                            @foreach($courses as $course)
-                                <option value="{{ $course->id }}" @if($course->selected)selected @endif>
-                                    {{ $course->name }}</option>
-                            @endforeach
-                        </select>
-
-                        @if($errors->has("course_id[]"))
-                            <div class="text-danger font-weight-bold">
-                                {{ $errors->first("course_id[]") }}
-                            </div>
-                        @endif
-
-                    </div>
-                </div>
-
                 <!-- Add Image-->
                 <div class="form-group row">
-                    <label for="image_path"
-                           class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+                    <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Teacher Image') }}</label>
+
                     <div class="col-md-6">
 
-                        @if($student->image_path)
-                            <img src="{{ url($student->image_path) }}"
-                                 alt="..." class="mb-3 img-thumbnail">
+                        @if($teacher->image_path)
+                            <img src="{{ url($teacher->image_path) }}"
+                                 alt="..."
+                                 class="mb-3 img-thumbnail">
                         @endif
+
 
                         <input id="image_path"
                                type="file"
@@ -147,8 +126,7 @@
                         @endif
                     </div>
                 </div>
-
-                <!--********************************************************************-->
+<!--*****************************************************************-->
                 <h5 class="font-weight-bold">
                     Login Information
                 </h5>
@@ -160,7 +138,7 @@
                     <div class="col-md-6">
                         <input id="email"
                                type="email"
-                               value="{{ old("email", $student->user ? $student->user->email : "") }}"
+                               value="{{ old("email",$teacher->user ? $teacher->user->email : "") }}"
                                class="form-control"
                                name="email">
 
@@ -219,11 +197,4 @@
             </form>
         </div>
     </div>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-    <script>
-        $(document).ready(function() {
-            $('#course_id').select2();
-        });
-    </script>
 @endsection

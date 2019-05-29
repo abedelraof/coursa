@@ -2,13 +2,12 @@
 
 namespace App\Http\Requests;
 
-use App\Student;
-use App\User;
+use App\Teacher;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class SaveStudentRequest extends FormRequest
+class SaveTeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,19 +21,19 @@ class SaveStudentRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *"image_path" => "nullable|string",
+     *
      * @return array
      */
     public function rules()
     {
-        //dd($_REQUEST);
+        //in edit mode to not duplicate email and password
         $user_id = 0;
         if ($this->id)
         {
-            $student = Student::find($this->id);
-            if($student)
+            $teacher = Teacher::find($this->id);
+            if($teacher)
             {
-                $user_id = $student->user_id;
+                $user_id = $teacher->user_id;
             }
         }
         return [
